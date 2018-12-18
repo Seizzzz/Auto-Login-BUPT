@@ -1,6 +1,4 @@
-# BUPT-network-login_Python_2018.12
-Login BUPT network with Python(requests)
-
+# BUPT-Network-Login_Python_2018.12
 Python实现登录北邮网关
 
 1. 需要第三方库requests
