@@ -1,10 +1,7 @@
 # coding: utf-8
-# include <requests>
-
 import requests
 
 url = 'http://ngw.bupt.edu.cn/login'
-
 
 def login():
     # replace following ***
