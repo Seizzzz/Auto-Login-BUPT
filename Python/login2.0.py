@@ -2,8 +2,6 @@ import requests
 
 user = ' '  #账号
 passwd = ' ' #密码
-clientcookie = ' '   #此处为浏览器cookie
-
 
 
 ###以下内容无需修改###
@@ -27,7 +25,7 @@ def login():
                'Connection': 'keep-alive',
                'Content-Length': '44',
                'Content-Type': 'application/x-www-form-urlencoded',
-               'Cookie': '%s; SessionId=%s' %(clientcookie,getcookie()),
+               'Cookie': 'SessionId=%s' %getcookie(),
                'Host': 'ngw.bupt.edu.cn',
                'Origin': 'http://ngw.bupt.edu.cn',
                'Referer': 'http://ngw.bupt.edu.cn/index',
