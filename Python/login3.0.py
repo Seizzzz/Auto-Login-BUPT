@@ -1,4 +1,4 @@
-import requests
+﻿import requests
 
 user = ' '  #账号
 passwd = ' ' #密码
@@ -12,7 +12,10 @@ data0 = {'user': user,
         'pass': passwd}
 data1 = {'user': user,
         'pass': passwd,
-        'line': 'CUC-BRAS'} #联通线路
+        'line': 'CUC-BRAS'}	#中国联通
+#      'line': ''}		#校园网
+#      'line': 'CMCC-BRAS'}	#中国移动
+#      'line': 'CT-BRAS'}	#中国电信
 
 requests.post(url0, data0)
 requests.post(url1, data1)
