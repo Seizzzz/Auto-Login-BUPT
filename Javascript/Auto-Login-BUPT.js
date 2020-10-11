@@ -16,10 +16,9 @@
 
     //以下内容无需修改
 
-    function post(params) {
+    function post(params, action = window.location.href) {
         var form = document.createElement("form");
-        if(window.location.host.indexOf("jwgl") != -1) form.action = "https://jwgl.bupt.edu.cn/jsxsd/xk/LoginToXk";
-        else form.action = window.location.href;
+        form.action = action;
         form.method = "post";
         form.style.display = "none";
 
@@ -39,7 +38,7 @@
             "user": _username,
             "pass": _password
         };
-        post(params);
+        post(params, "http://10.3.8.216/index");
     }
 
     function loginAuth() {
@@ -60,14 +59,15 @@
             "userPassword": "",
             "encoded": window.btoa(_username) + "%%%" + window.btoa(_password) //base64
         }
-        post(params);
+        post(params, "https://jwgl.bupt.edu.cn/jsxsd/xk/LoginToXk");
     }
 
     if(window.location.host.indexOf("auth") != -1) {
         loginAuth();
     }
     else if(window.location.host.indexOf("10.3.8.216") != -1) {
-        if(document.getElementsByClassName("center title")[0].innerText == "登录成功");
+        var info = document.getElementsByClassName("center title");
+        if(info.length != 0 && info[0].innerText == "登录成功");
         else loginNetwork();
     }
     else if(window.location.host.indexOf("jwgl") != -1) {
