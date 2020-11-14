@@ -1,5 +1,5 @@
 # Auto-Login-BUPT
-Javascript实现自动登录北邮网关、身份认证系统、教务管理系统  
+Javascript实现自动登录北邮网关、身份认证系统、教务管理系统、爱课堂  
 建议使用Chrome，搭配Tampermonkey  
 
 # BUPT-Network-Login_Python(abandoned)
