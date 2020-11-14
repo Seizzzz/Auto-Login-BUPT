@@ -2,11 +2,13 @@
 // @name         Auto-Login-BUPT
 // @namespace    http://tampermonkey.net/
 // @version      1.0
-// @description  自动登录北邮网关、身份认证系统、教务管理系统
+// @description  自动登录北邮网关、身份认证系统、教务管理系统、爱课堂
 // @author       Seize
 // @match        http://10.3.8.216/*
 // @match        https://auth.bupt.edu.cn/*
 // @match        https://jwgl.bupt.edu.cn/jsxsd/
+// @match        https://iclass.bupt.edu.cn/webapps/login/*
+// @match        https://iclass.bupt.edu.cn/
 // @grant        none
 // ==/UserScript==
 
@@ -38,7 +40,7 @@
             "user": _username,
             "pass": _password
         };
-        post(params, "http://10.3.8.216/index");
+        post(params, "http://10.3.8.216/login");
     }
 
     function loginAuth() {
@@ -49,6 +51,20 @@
             "execution": document.getElementsByName("execution")[0].defaultValue,
             "_eventId": document.getElementsByName("_eventId")[0].defaultValue,
             "rmShown": 1
+        }
+        post(params);
+    }
+
+    function loginIclass() {
+        var params = {
+            "user_id": _username,
+            "password": _password,
+            "action": "login",
+            "remote-user": "",
+            "new_loc": "",
+            "auth_type": "",
+            "one_time_token": "",
+            "encoded_pw": window.btoa(_password) //base64
         }
         post(params);
     }
@@ -72,5 +88,8 @@
     }
     else if(window.location.host.indexOf("jwgl") != -1) {
         loginJWGL();
+    }
+    else if(window.location.host.indexOf("iclass") != -1) {
+        loginIclass();
     }
 }())
